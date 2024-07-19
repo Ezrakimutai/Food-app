@@ -2,20 +2,23 @@
 import React from 'react';
 import Image from 'next/image';
 import { Card, CardMedia, CardContent, Typography, Grid, Button } from '@mui/material';
+import P1IMG from "@/assets/images/p1.png";
+import P9IMG from "@/assets/images/p9.png";
+
 
 const foodItems = [
   {
     id: 1,
     name: 'Pizza',
     description: 'Delicious cheese Pizza',
-    image: 'src/assets/images/p1.png',
+    image: P1IMG,
     price: 9.99,
   },
   {
     id: 2,
     name: 'Burger',
     description: 'Juicy beef burger with fresh lettuce and tomato.',
-    image: '/images/p9.png',
+    image: P9IMG,
     price: 7.99,
   },
   // Add more food items here
