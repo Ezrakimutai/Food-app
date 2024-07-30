@@ -1,53 +1,27 @@
-"use client"
-import React, { useState } from 'react';
-import { AppBar, Toolbar, IconButton, Typography, Menu, MenuItem } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+'use client'
+import React from 'react';
+import Link from 'next/link';
+import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 
-const NavBar: React.FC = () => {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-
-  const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-  };
-
+const Navbar: React.FC = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h6" className="flex-grow">
-          Cafeteria
+        <Typography variant="h6" sx={{ flexGrow: 1 }}>
+          Food Ordering App
         </Typography>
-        <IconButton
-          edge="end"
-          color="inherit"
-          aria-label="menu"
-          onClick={handleMenuOpen}
-        >
-          <MenuIcon className="w-6 h-6" />
-        </IconButton>
-        <Menu
-          anchorEl={anchorEl}
-          open={Boolean(anchorEl)}
-          onClose={handleMenuClose}
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-          }}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-          }}
-        >
-          <MenuItem onClick={handleMenuClose}>Cart</MenuItem>
-          <MenuItem onClick={handleMenuClose}>Contact</MenuItem>
-          <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
-        </Menu>
+        <Button color="inherit" component={Link} href="/">
+          Home
+        </Button>
+        <Button color="inherit" component={Link} href="/cart">
+          Cart
+        </Button>
+        <Button color="inherit" component={Link} href="/checkout">
+          Checkout
+        </Button>
       </Toolbar>
     </AppBar>
   );
 };
 
-export default NavBar;
+export default Navbar;
