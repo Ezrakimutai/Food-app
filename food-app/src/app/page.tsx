@@ -59,8 +59,12 @@ const Home: React.FC = () => {
 
   const addToCart = (item: any) => {
     dispatch(addItemToCart(item))
-    console.log(reduxItems);
+  
   }
+  const handleAddToCart = (itemId: number) => {
+    dispatch(addItemToCart(itemId)); // Dispatch the action with the item ID
+  };
+  
 
   return (
     <div>
@@ -90,7 +94,7 @@ const Home: React.FC = () => {
                   View Details
                 </Button>
                 <Box m={1} /> 
-                <Button variant="contained" color="primary" onClick = { () => addToCart(item)}>
+                <Button variant="contained" color="primary" onClick = { () => handleAddToCart(item.id)}>
                 Add item cart
                 </Button>
               </CardContent>
