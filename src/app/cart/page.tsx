@@ -12,11 +12,13 @@ const Cart: React.FC = () => {
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const foodItems = useSelector((state: RootState) => state.food.items);
 
+
 //Handling the items is possibly undefined error
  const itemsInCart = cartItems.map((cartItem)=> {
-const foodItem = foodItems.find(item => item.id === cartItem.id);
+  const foodItem = foodItems.find(item => item.id === cartItem.id);
  
     if(!foodItem) return null; //Returns null if Food item is not found
+
    return { ...foodItem, quantity: cartItem.quantity };
  }).filter(item => item !== null) as (typeof foodItems[0] & {quantity: number}) []; 
 //filters out Null and asserts type.
@@ -28,13 +30,12 @@ const foodItem = foodItems.find(item => item.id === cartItem.id);
   const handleRemoveFromCart = (id: number) => {
     dispatch(removeItemFromCart(id));
   };
-console.log(itemsInCart);
   return (
     <div>
       <Navbar />
-      {/* <Typography variant="h4" component="h1" sx={{ padding: 2 }}>
+      <Typography variant="h4" component="h1" sx={{ padding: 2 }}>
         Cart
-      </Typography> */}
+      </Typography>
       <Grid container spacing={2} sx={{ padding: 2 }}>
         {itemsInCart.map((item) => (
           <Grid item key={item.id} xs={12} sm={6} md={4}>

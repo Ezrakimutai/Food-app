@@ -4,10 +4,11 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch, RootState, AppDispatch } from '@/Redux/store';
 import { setFoodItems, selectFoodItem, clearSelectedItem } from '@/Redux/slices/foodSlice';
-import { Grid, Card, CardMedia, CardContent, Typography, Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
+import { Grid, Card, CardMedia, CardContent, Typography, Button, Dialog, DialogActions, DialogContent,Box, DialogTitle } from '@mui/material';
 import Navbar from '../components/Navbar';
 import p1 from '@/assets/images/p1.png';
 import p9 from '@/assets/images/p9.png';
+import p8 from "@/assets/images/p4.png"
 import { addItemToCart } from '@/Redux/slices/cartSlice';
 
 
@@ -33,6 +34,13 @@ const Home: React.FC = () => {
         image: p9.src, 
         description: 'Juicy beef burger', 
         price: 8 
+      },
+      {
+        id: 3, 
+        name: 'Fries', 
+        image: p8.src, 
+        description: 'Tasty Brazilian fries', 
+        price: 6 
       },
 
     ]));
@@ -81,6 +89,7 @@ const Home: React.FC = () => {
                 <Button variant="contained" color="primary" onClick={() => handleClickItem(item)}>
                   View Details
                 </Button>
+                <Box m={1} /> 
                 <Button variant="contained" color="primary" onClick = { () => addToCart(item)}>
                 Add item cart
                 </Button>
