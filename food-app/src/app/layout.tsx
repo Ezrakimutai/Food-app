@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Nots from "@/components/Nots";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import ReduxConfig from "./ReduxConfig";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,11 +17,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    
     <html lang="en">
       <body className={inter.className}>
+      <ReduxConfig >
         <Nots/>
         {children}
+      </ReduxConfig>
         </body>
     </html>
+    
+
   );
 }
